@@ -1,0 +1,118 @@
+.reservation-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    width: 400px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    z-index: 9999;
+}
+
+.reservation-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+}
+
+.reservation-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.confirmation-title {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.date {
+    font-weight: bold;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.reservation-body {
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.section-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.activities {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.activities-item {
+    margin-bottom: 5px;
+}
+
+.activities-item:first-child {
+    margin-top: 5px;
+}
+
+.accommodation {
+    display: flex;
+    align-items: center;
+}
+
+.accommodation-name {
+    margin-right: 10px;
+}
+
+.total-amount-title {
+    font-size: 18px;
+}
+
+.confirm-button {
+    float: right;
+    margin-right: 5px;
+}
+
+.cancel-button {
+    float: left;
+    margin-left: 5px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+}
+
+.confirmation-title {
+    background-color: #ccc;
+    font-size: 24px;
+}
+
+.section-title {
+    font-size: 20px;
+}
+
+.total-amount-title {
+    font-size: 18px;
+}

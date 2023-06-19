@@ -1,0 +1,32 @@
+.intro-container {
+    background: url('../images/cover.jpg') center center/cover no-repeat;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    box-shadow: inset 0 0 0 100px rgba(0, 0, 0, 0.2);
+    object-fit: contain;
+}
+
+.intro-container > h1 {
+    color: #ffffff;
+    font-size: 120px;
+    margin-top: 9%;
+}
+
+.intro-container > p {
+    margin-top: 8px;
+    color: white;
+    font-size: 32px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.intro-btns {
+    margin-top: 32px;
+}
+
+.intro-btns .btn{
+    margin: 6px;
+}

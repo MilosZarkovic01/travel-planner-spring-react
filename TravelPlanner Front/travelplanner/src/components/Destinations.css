@@ -1,0 +1,63 @@
+#destination .container {
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+#destination .card {
+    width: 100%;
+    margin-bottom: 2rem;
+    margin-top: 45px;
+    margin-right: 20px;
+    overflow: hidden;
+}
+
+#destination .col-md-4 {
+    margin-top: -30px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-bottom: 30px;
+}
+
+#destination .row {
+    margin-top: 40px;
+}
+
+#destination .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    transition: all 0.2s linear;
+}
+
+#destination .card-img-top:hover {
+    transform: scale(1.1);
+
+}
+
+#destination .card-text {
+    margin-bottom: 15px;
+}
+
+#destination .card-body {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+#destination .card-title {
+    margin: 0;
+    text-align: center;
+}
+
+
+#destination .btn-primary {
+    margin-left: 10px;
+    align-self: center;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+#destination .btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}

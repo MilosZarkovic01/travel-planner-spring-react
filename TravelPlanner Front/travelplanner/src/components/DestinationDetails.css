@@ -1,0 +1,84 @@
+.destination {
+    margin: 4rem 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.destination h1 {
+    font-size: 5rem;
+    color: black;
+    padding: 0.5rem;
+}
+
+
+.dest {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4.5rem;
+}
+
+.dest-text {
+    width: 45%;
+    text-align: start;
+    font-size: 1.1rem;
+}
+
+.dest-text h2 {
+    padding-bottom: 1rem;
+}
+
+.image {
+    position: relative;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    z-index: -99;
+}
+
+.image img {
+    width: 45%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: -1px 1px 62px -18px rgba(0, 0, 0, 0.19);
+}
+
+.image img:nth-child(2) {
+    position: absolute;
+    top: -10%;
+    right: 0;
+}
+
+.description {
+    margin-top: 1rem;
+    text-align: justify;
+}
+
+.reservation-button-container {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    bottom: 3rem;
+    right: 5rem;
+    padding: 0 20px;
+}
+
+.reservation-button {
+    animation: pulseAnimation 1.5s infinite ease-in-out;
+}
+
+@keyframes pulseAnimation {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

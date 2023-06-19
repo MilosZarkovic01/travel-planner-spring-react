@@ -1,0 +1,99 @@
+.activity-container {
+    margin: 4rem 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+}
+
+
+.activity-container h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.activity-container ul {
+    padding: 0;
+}
+
+.activity-container .activity-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+
+}
+
+.activity-container .activity-info {
+    flex: 1;
+    margin-right: 1rem;
+}
+
+.activity-container .activity-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-size: 22px;
+}
+
+.activity-container .activity-name {
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.activity-container .activity-price {
+    color: #999;
+    margin-left: 1rem;
+    margin-bottom: 0;
+    font-size: 16px;
+}
+
+.activity-container .activity-description {
+    margin-bottom: 0.5rem;
+}
+
+.activity-container .checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-left: 300px;
+}
+
+.activity-container input[type="checkbox"] {
+    transform: scale(2.2);
+}
+
+.sort-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: #ccc;
+    height: 180px;
+    width: 300px;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+.sort-button {
+    margin: auto;
+}
+
+/*
+.sort-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ccc;
+    height: 200px;
+    width: 300px;
+    padding: 0.5rem;
+    border-radius: 4px;
+  }
+  */
+
+.dropdown-menu {
+    background-color: #fff;
+}

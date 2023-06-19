@@ -1,0 +1,6 @@
+User(userID, username, password, first_name, last_name, email, phone_number)
+Destination(destinationID, name, description, city, country,cover_photo)
+Accommodation(accommodationID, name, description, address, price_per_night, number_of_rooms, destination_fk)
+TravelPlan(travelplanID, arrival_date, departure_date, price, number_of_seats, destination_fk)
+Activity(activityID, name, description, price, travelplan_fk)
+Reservation(reservationID, date_of_reservation, total_cost, accommodation_fk, user_fk, travelplan_fk)

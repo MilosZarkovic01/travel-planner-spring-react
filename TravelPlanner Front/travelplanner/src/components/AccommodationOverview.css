@@ -1,0 +1,59 @@
+.accommodation-overview {
+    color: black;
+    text-align: center;
+    margin: 7rem 6rem;
+}
+
+
+.accommodation-list {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+}
+
+.accommodation-item {
+    flex: 1 0 0;
+    background-color: #fff;
+    max-width: 400px;
+    position: relative;
+    padding: 1rem;
+    box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+    overflow: hidden;
+}
+
+
+.accommodation-item:hover {
+    border-color: #007bff;
+}
+
+.accommodation-item h2 {
+    margin-bottom: 0.5rem;
+}
+
+.accommodation-item p {
+    margin: 0.5rem 0;
+}
+
+.accommodation-item button {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: #242424;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.accommodation-item button.selected {
+    background-color: #007bff;
+}

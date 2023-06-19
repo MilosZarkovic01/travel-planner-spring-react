@@ -1,0 +1,102 @@
+.travel-plan-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('../images/travel-plan.jpg');
+    height: 400px;
+    width: 65%;
+    margin: 0 auto;
+}
+
+
+.title {
+    font-size: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.plan-container {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.plan-card {
+    width: 200px;
+    height: 250px;
+    align-self: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 0 35px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.plan-card:hover {
+    border-color: #007bff;
+}
+
+.plan-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
+}
+
+.year {
+    font-size: 30px;
+    margin-bottom: 4px;
+}
+
+.day {
+    font-size: 16px;
+    margin-bottom: 2px;
+}
+
+.month {
+    font-size: 30px;
+    margin-bottom: 2px;
+}
+
+.number {
+    font-size: 32px;
+}
+
+.price {
+    color: #999;
+}
+
+.sold-out-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 0, 0, 0.8);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.plan-card:hover .sold-out-overlay {
+    opacity: 3;
+    pointer-events: auto;
+}
+
+.sold-out-overlay p {
+    color: #fff;
+    font-size: 32px;
+    font-weight: bold;
+    transform: rotate(-45deg);
+}

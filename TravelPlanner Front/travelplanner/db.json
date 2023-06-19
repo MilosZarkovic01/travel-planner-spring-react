@@ -1,0 +1,23 @@
+{
+  "user": [
+    {
+      "id": "admin",
+      "name": "Nihira",
+      "password": "admin",
+      "email": "nihiratechiees@gmail.com",
+      "phone": "8989898989",
+      "country": "usa",
+      "address": "",
+      "role": "admin",
+      "gender": "female"
+    },
+    {
+      "id": "somika",
+      "firstname": "Somi",
+      "lastname": "Ka",
+      "password": "somika",
+      "email": "somi@gmail.com",
+      "phone": "0643255585"
+    }
+  ]
+}
