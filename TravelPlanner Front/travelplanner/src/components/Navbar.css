@@ -75,6 +75,11 @@
   display: none;
 }
 
+.local-time {
+  color: white;
+  font-size: 1.2rem;
+}
+
 @media screen and (max-width: 960px) {
   .NavbarItems {
     position: relative;

@@ -24,7 +24,6 @@ public class ReservationServiceImpl implements ReservationService {
         TravelPlan travelPlan = savedReservation.getTravelPlan();
         travelPlan.setNumberOfSeats(travelPlan.getNumberOfSeats() - 1);
         travelPlanRepository.save(travelPlan);
-        System.out.println(travelPlan);
 
         return savedReservation;
     }

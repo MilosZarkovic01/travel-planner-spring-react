@@ -6,6 +6,7 @@ function Navbar() {
     const [click, setClick] = useState(false);
     const [button, setButton] = useState(true);
 
+
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
 
@@ -28,7 +29,7 @@ function Navbar() {
             <nav className='navbar'>
                 <div className='navbar-container'>
                     <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-                        TravelPLANNER 
+                        TravelPLANNER
                         <i class='fas fa-globe-africa fa-spin'></i>
                     </Link>
                     <div className='menu-icon' onClick={handleClick}>
