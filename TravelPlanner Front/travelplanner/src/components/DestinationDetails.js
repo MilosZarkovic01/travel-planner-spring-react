@@ -87,8 +87,10 @@ function DestinationsDetails() {
 
                 setSelectedPlan(updatedPlan);
                 setShowPopup(false);
+            } else if (response.status === 400) {
+                toast.error('Just sold out!');
             } else {
-                toast.error('Error');
+                toast.error("Error");
             }
         } catch (error) {
             toast.error('Error');

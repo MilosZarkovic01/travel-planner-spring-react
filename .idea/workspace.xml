@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9c1406db-cf51-41b7-ab5f-f41106abd6a4" name="Changes" comment="" />
+    <list default="true" id="9c1406db-cf51-41b7-ab5f-f41106abd6a4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/TravelPlanner Back/travel-planner/src/main/java/com/example/travelplanner/auth/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/TravelPlanner Back/travel-planner/src/main/java/com/example/travelplanner/auth/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravelPlanner Back/travel-planner/src/main/java/com/example/travelplanner/auth/AuthenticationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/TravelPlanner Back/travel-planner/src/main/java/com/example/travelplanner/auth/AuthenticationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravelPlanner Back/travel-planner/src/main/java/com/example/travelplanner/auth/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/TravelPlanner Back/travel-planner/src/main/java/com/example/travelplanner/auth/AuthenticationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravelPlanner Back/travel-planner/src/main/java/com/example/travelplanner/controller/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/TravelPlanner Back/travel-planner/src/main/java/com/example/travelplanner/controller/ReservationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravelPlanner Back/travel-planner/src/main/java/com/example/travelplanner/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/TravelPlanner Back/travel-planner/src/main/java/com/example/travelplanner/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravelPlanner Back/travel-planner/src/main/java/com/example/travelplanner/service/ReservationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/TravelPlanner Back/travel-planner/src/main/java/com/example/travelplanner/service/ReservationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravelPlanner Back/travel-planner/src/main/java/com/example/travelplanner/service/impl/ReservationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/TravelPlanner Back/travel-planner/src/main/java/com/example/travelplanner/service/impl/ReservationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravelPlanner Back/travelplannerdb.sql" beforeDir="false" afterPath="$PROJECT_DIR$/TravelPlanner Back/travelplannerdb.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravelPlanner Front/travelplanner/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/TravelPlanner Front/travelplanner/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravelPlanner Front/travelplanner/src/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/TravelPlanner Front/travelplanner/src/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravelPlanner Front/travelplanner/src/components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/TravelPlanner Front/travelplanner/src/components/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravelPlanner Front/travelplanner/src/components/Navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/TravelPlanner Front/travelplanner/src/components/Navbar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravelPlanner Front/travelplanner/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/TravelPlanner Front/travelplanner/src/components/Navbar.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,7 +32,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/TravelPlanner Back" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

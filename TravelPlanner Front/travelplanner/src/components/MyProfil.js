@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import './MyProfile.css'
@@ -11,10 +11,12 @@ function MyProfile() {
         phoneNumber: sessionStorage.getItem('phoneNumber')
     });
 
+    const [reservations, setReservations] = useState([]);
+
     const handleChange = (event) => {
         const { name, value } = event.target;
         setUser((prevUser) => ({ ...prevUser, [name]: value }));
-        sessionStorage.setItem(`${name}`,`${value}`);
+        sessionStorage.setItem(`${name}`, `${value}`);
     };
 
     const handleSubmit = (event) => {
@@ -43,6 +45,26 @@ function MyProfile() {
             });
     };
 
+    useEffect(() => {
+        fetchReservations();
+    }, []);
+
+    const fetchReservations = async () => {
+        try {
+            const email = sessionStorage.getItem('email');
+            const token = sessionStorage.getItem('token');
+            const response = await fetch(`http://localhost:8080/reservations/${email}`, {
+                method: 'GET',
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            const data = await response.json();
+            setReservations(data);
+        } catch (error) {
+            console.log('Error fetching reservations:', error);
+        }
+    };
     return (
         <>
             <Navbar />
@@ -90,6 +112,30 @@ function MyProfile() {
                         </button>
                     </form>
                 </div>
+            </div>
+            <div className="reservations-container">
+                <h2>My Reservations</h2>
+                <br/>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Country</th>
+                            <th>Arrival-Departure Date</th>
+                            <th>Accommodation</th>
+                            <th>Total Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {reservations.map((reservation) => (
+                            <tr key={reservation.reservationID}>
+                                <td>{reservation.country}, {reservation.city}</td>
+                                <td>{new Date(reservation.arrivalDate).toLocaleDateString()} - {new Date(reservation.departureDate).toLocaleDateString()}</td>
+                                <td>{reservation.accommodation}</td>
+                                <td>{reservation.totalCost}€</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
             <Footer />
         </>

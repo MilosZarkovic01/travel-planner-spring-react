@@ -31,7 +31,7 @@ const Login = () => {
                         sessionStorage.setItem('firstName', data.firstName);
                         sessionStorage.setItem('lastName', data.lastName);
                         sessionStorage.setItem('phoneNumber', data.phoneNumber);
-
+                        sessionStorage.setItem('role',data.role);
                         usenavigate('/');
                     });
                 }

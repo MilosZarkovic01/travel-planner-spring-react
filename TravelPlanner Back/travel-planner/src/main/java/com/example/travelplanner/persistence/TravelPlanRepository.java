@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface TravelPlanRepository extends JpaRepository<TravelPlan, Long> {
     List<TravelPlan> findByDestinationDestinationID(Long destinationID);
+    TravelPlan findByTravelplanID(Long travelPlanID);
 }

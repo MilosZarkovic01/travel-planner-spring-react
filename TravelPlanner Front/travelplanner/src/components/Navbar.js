@@ -5,10 +5,28 @@ import './Navbar.css';
 function Navbar() {
     const [click, setClick] = useState(false);
     const [button, setButton] = useState(true);
+    const [localTime, setLocalTime] = useState('');
 
 
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
+
+    const role = sessionStorage.getItem('role');
+
+    const fetchLocalTime = async () => {
+        try {
+            const response = await fetch(`https://worldtimeapi.org/api/timezone/Europe/Belgrade`, {
+                method: 'GET'
+            });
+            const data = await response.json();
+            const time = data.datetime.slice(11, 16);
+            setLocalTime(time);
+        } catch (error) {
+            console.log('Error fetching travel plans:', error);
+        }
+    };
+
+
 
     const showButton = () => {
         if (window.innerWidth <= 960) {
@@ -19,6 +37,7 @@ function Navbar() {
     };
 
     useEffect(() => {
+        fetchLocalTime();
         showButton();
     }, []);
 
@@ -51,12 +70,20 @@ function Navbar() {
                                 My Profil
                             </Link>
                         </li>
+                        {role === 'ADMIN' && ( // Provera role za prikazivanje novog list item-a
+                            <li className='nav-item'>
+                                <Link to='/all-reservations' className='nav-links' onClick={closeMobileMenu}>
+                                    All reservations
+                                </Link>
+                            </li>
+                        )}
                         <li>
                             <Link to='/login' className='nav-links' onClick={closeMobileMenu}>
                                 Logout
                             </Link>
                         </li>
                     </ul>
+                    <div className='local-time'>{localTime} Belgrade</div>
                 </div>
             </nav>
         </>

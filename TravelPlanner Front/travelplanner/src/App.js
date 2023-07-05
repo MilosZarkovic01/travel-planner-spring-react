@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import MyProfil from './components/MyProfil'
 import Destinations from './components/Destinations'
 import DestinationsDetails from './components/DestinationDetails'
+import AllReservations from './components/AllReservations'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path='/my-profil' element={<MyProfil />}></Route>
           <Route path='/destinations' element={<Destinations />}></Route>
           <Route path='/destinations/:id' element={<DestinationsDetails />}></Route>
+          <Route path='/all-reservations' element={<AllReservations />}></Route>    
         </Routes>
       </BrowserRouter>
     </div>
