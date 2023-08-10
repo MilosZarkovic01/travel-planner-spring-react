@@ -55,14 +55,19 @@ const Register = () => {
                 method: "POST",
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(regobj)
-            }).then(() => {
-                toast.success('Registered successfully!')
-                navigate('/login');
+            }).then((response) => {
+                if (response.ok) {
+                    toast.success('Successfully registered!');
+                    navigate('/login');
+                } else {
+                    toast.error('Failed: Email already exists');
+                }
             }).catch((err) => {
-                toast.error('Failed :' + err.message);
+                toast.error('Error: ' + err.message);
             });
         }
     }
+
 
     return (
         <div className="col-log-6 mt-4">

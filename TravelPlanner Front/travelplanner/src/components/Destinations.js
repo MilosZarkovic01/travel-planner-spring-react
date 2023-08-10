@@ -1,32 +1,101 @@
-import React, { useEffect, useState } from 'react'
-import Navbar from "./Navbar"
-import Footer from './Footer'
-import './Destinations.css'
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Navbar from "./Navbar";
+import Footer from './Footer';
+import './Destinations.css';
 
 function Destinations() {
   const [destinations, setDestinations] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [currentPage, setCurrentPage] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
 
   useEffect(() => {
-    fetch('http://localhost:8080/destinations/all', {
+    fetchDestinations();
+  }, [currentPage]);
+
+  useEffect(() => {
+    fetch('http://localhost:8080/destinations/totalPages', {
       method: 'GET',
       headers: { 'Authorization': `Bearer ${sessionStorage.getItem('token')}` }
     })
       .then(response => response.json())
       .then(data => {
-        setDestinations(data);
+        setTotalPages(data);
       });
   }, []);
 
+  const fetchDestinations = () => {
+    fetch(`http://localhost:8080/destinations/page?page=${currentPage}&size=6`, {
+      method: 'GET',
+      headers: { 'Authorization': `Bearer ${sessionStorage.getItem('token')}` }
+    })
+      .then(response => response.json())
+      .then(data => {
+        setDestinations(data.content);
+      });
+  };
+
+  const handleSearchRequest = () => {
+    fetch(`http://localhost:8080/destinations/search?query=${searchTerm}&page=${currentPage}&size=6`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => {
+        if (response.status === 204) {
+          return []; // Empty array for no content
+        } else if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('An error occurred during search.');
+        }
+      })
+      .then(data => {
+        if (Array.isArray(data) && data.length === 0) {
+          toast.info('No matches found.', {
+            position: 'bottom-center',
+            autoClose: 3000,
+            hideProgressBar: true,
+            closeOnClick: true,
+          });
+        } else {
+          setDestinations(data.content);
+          setTotalPages(data.totalPages);
+        }
+      })
+      .catch(error => {
+        console.error('Error searching destinations:', error);
+        toast.error('An error occurred while searching. Please try again.', {
+          position: 'bottom-center',
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: true,
+        });
+      });
+  };
+  
+  
+  
   const handleSearch = event => {
     setSearchTerm(event.target.value);
   };
 
-  const filteredDestinations = destinations.filter(destination => {
-    return destination.country.toLowerCase().includes(searchTerm.toLowerCase())
-      || destination.city.toLowerCase().includes(searchTerm.toLowerCase())
-  });
+  const handlePreviousPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages - 1) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
 
   return (
     <div>
@@ -46,6 +115,7 @@ function Destinations() {
                 className="btn btn-outline-secondary"
                 type="button"
                 id="search-button"
+                onClick={handleSearchRequest}
               >
                 Search
               </button>
@@ -53,7 +123,7 @@ function Destinations() {
           </div>
         </div>
         <div className="row">
-          {filteredDestinations.map(destination => (
+          {destinations.map(destination => (
             <div className="col-md-4 mb-3" key={destination.destinationID}>
               <div className="card">
                 <img
@@ -71,10 +141,31 @@ function Destinations() {
             </div>
           ))}
         </div>
+        <div className="pagination-container">
+          <button
+            className="btn btn-secondary"
+            disabled={currentPage === 0}
+            onClick={handlePreviousPage}
+          >
+            Previous
+          </button>
+          <div className="pagination-pages">
+            <span className="pagination-current">Page {currentPage + 1}</span>
+            <span className="pagination-total">of {totalPages}</span>
+          </div>
+          <button
+            className="btn btn-secondary"
+            disabled={currentPage === totalPages - 1}
+            onClick={handleNextPage}
+          >
+            Next
+          </button>
+        </div>
       </div>
       <Footer />
+      <ToastContainer position="bottom-center" />
     </div>
-  )
+  );
 }
 
-export default Destinations
+export default Destinations;

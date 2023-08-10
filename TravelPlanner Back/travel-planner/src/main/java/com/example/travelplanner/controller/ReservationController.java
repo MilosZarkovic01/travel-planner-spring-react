@@ -48,5 +48,20 @@ public class ReservationController {
         List<UserReservationDto> reservations = reservationService.getUserReservationsByEmail(email);
         return ResponseEntity.ok(reservations);
     }
+
+    @GetMapping("/id/{reservationID}")
+    public ResponseEntity<ReservationDto> findById(@PathVariable("reservationID") Long reservationID) {
+        Optional<Reservation> reservation = reservationService.findById(reservationID);
+        if (!reservation.isPresent()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        ReservationDto reservationDto = ReservationDto.builder()
+                .reservationID(reservation.get().getReservationID())
+                .dateOfReservation(reservation.get().getDateOfReservation())
+                .totalCost(reservation.get().getTotalCost())
+                .build();
+
+        return new ResponseEntity<>(reservationDto, HttpStatus.OK);
+    }
 }
 

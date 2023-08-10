@@ -82,3 +82,37 @@
         transform: scale(1);
     }
 }
+
+.date-picker-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  
+  .date-picker {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+  }
+  
+  .date-picker label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    margin-top: 20px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  

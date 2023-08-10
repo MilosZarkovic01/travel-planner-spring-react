@@ -27,4 +27,9 @@ public class TravelPlanServiceImpl implements TravelPlanService {
         }
         return travelPlans;
     }
+
+    @Override
+    public List<TravelPlan> findTravelPlansFromTo(Long destinationID, LocalDate dateFrom, LocalDate dateTo) {
+        return travelPlanRepository.findByDestinationIdAndArrivalDateGreaterThanEqualAndDepartureDateLessThanEqual(destinationID, dateFrom, dateTo);
+    }
 }

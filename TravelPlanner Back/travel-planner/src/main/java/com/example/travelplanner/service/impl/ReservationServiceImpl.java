@@ -76,5 +76,10 @@ public class ReservationServiceImpl implements ReservationService {
         }
         return reservations;
     }
+
+    @Override
+    public Optional<Reservation> findById(Long reservationID) {
+        return reservationRepository.findById(reservationID);
+    }
 }
 

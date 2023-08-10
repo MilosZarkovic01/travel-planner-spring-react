@@ -23,7 +23,7 @@ const Login = () => {
                 body: JSON.stringify(logobj)
             }).then((res) => {
                 if (res.status === 200) {
-                    toast.success('Success');
+                    toast.success('Successfully logged!');
                     res.json().then((data) => {
                         console.log(data);
                         sessionStorage.setItem('token', data.token);

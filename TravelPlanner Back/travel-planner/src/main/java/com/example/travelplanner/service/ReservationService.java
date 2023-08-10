@@ -14,4 +14,5 @@ public interface ReservationService {
     List<ReservationDto> getAllReservations();
     Optional<Reservation> deleteReservation(Long reservationID);
     List<UserReservationDto> getUserReservationsByEmail(String email);
+    Optional<Reservation> findById(Long reservationID);
 }

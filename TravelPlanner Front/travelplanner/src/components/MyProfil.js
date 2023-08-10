@@ -24,17 +24,17 @@ function MyProfile() {
         fetch('http://localhost:8080/users/update', {
             method: 'PUT',
             headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+                'Content-Type': 'application/json'
+               
             },
             body: JSON.stringify(user)
         })
             .then(response => {
                 if (!response.ok) {
-                    toast.error('Failed')
+                    toast.error('Failed to update!')
                     throw new Error('Update failed');
                 } else {
-                    toast.success('Success')
+                    toast.success('Successfully updated!')
                     return response.text();
                 }
             }).then(message => {

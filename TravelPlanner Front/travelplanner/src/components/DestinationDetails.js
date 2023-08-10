@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import './DestinationDetails.css'
 import Navbar from './Navbar'
@@ -7,6 +7,8 @@ import AccommodationOverview from './AccommodationOverview'
 import TravelPlanCard from './TravelPlanCard'
 import ReservationPopUp from './ReservationPopUp'
 import { toast } from 'react-toastify'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 
 
 function DestinationsDetails() {
@@ -20,6 +22,55 @@ function DestinationsDetails() {
     const [totalPrice, setTotalPrice] = useState(0);
 
     const [planChange, setPlanChange] = useState(0);
+
+    const [isSearched, setIsSearched] = useState(false);
+    const [searchedTravelPlans, setSearchedTravelPlans] = useState([]);
+
+
+    const [dateFrom, setDateFrom] = useState(null);
+    const [dateTo, setDateTo] = useState(null);
+
+    const handleSearch = async (dateFrom, dateTo) => {
+        try {
+            if (!dateFrom || !dateTo) {
+                toast.warning('Please select both Arrival and Departure dates');
+                return;
+            }
+
+            const formattedDateFrom = formatDateForJava(dateFrom);
+            const formattedDateTo = formatDateForJava(dateTo);
+
+            const response = await fetch(`http://localhost:8080/travel-plans/${dest.destinationID}/${formattedDateFrom}/${formattedDateTo}`, {
+                method: 'GET',
+                headers: {
+                    Authorization: `Bearer ${sessionStorage.getItem('token')}`
+                }
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                setSearchedTravelPlans(data);
+                console.log('Searched Travel Plans:', data);
+                setIsSearched(true);
+                console.log('Is Searched:', isSearched);
+            } else if (response.status === 204) {
+                toast.error('No content found.');
+                return;
+            } else {
+                toast.error('Error fetching data');
+            }
+        } catch (error) {
+            toast.error('Failed!');
+        }
+    };
+
+    const formatDateForJava = (date) => {
+        const year = date.getFullYear();
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const day = date.getDate().toString().padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    };
+
 
     const handleReservationClick = () => {
         if (selectedPlan === null) {
@@ -36,8 +87,6 @@ function DestinationsDetails() {
     const handleConfirmReservation = async () => {
         try {
             const userEmail = sessionStorage.getItem('email');
-
-            // Dohvatanje podataka o korisniku sa backend-a na osnovu emaila
             const userResponse = await fetch(`http://localhost:8080/users/email?email=${encodeURIComponent(userEmail)}`, {
                 method: 'GET',
                 headers: {
@@ -79,7 +128,7 @@ function DestinationsDetails() {
             });
 
             if (response.ok) {
-                toast.success('Success');
+                toast.success('Reservation successfully made!');
 
                 setPlanChange(prevChange => prevChange + 1);
                 const updatedPlan = { ...selectedPlan };
@@ -122,12 +171,25 @@ function DestinationsDetails() {
                     </div>
                 </div>
             </div>
+            <div className='date-picker-container'>
+                <div className='date-picker'>
+                    <label>From:</label>
+                    <DatePicker selected={dateFrom} onChange={date => setDateFrom(date)} />
+                </div>
+                <div className='date-picker'>
+                    <label>To:</label>
+                    <DatePicker selected={dateTo} onChange={date => setDateTo(date)} />
+                </div>
+                <button className='btn btn-primary' onClick={() => handleSearch(dateFrom, dateTo)}>Search</button>
+            </div>
             <TravelPlanCard
                 destinationID={dest.destinationID}
                 selectedPlan={selectedPlan}
                 setSelectedPlan={setSelectedPlan}
                 selectedActivities={selectedActivities}
                 setSelectedActivities={setSelectedActivities}
+                searchedTravelPlans={searchedTravelPlans}
+                isSearched={isSearched}
                 key={planChange}
             />
             <AccommodationOverview

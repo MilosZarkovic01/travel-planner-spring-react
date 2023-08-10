@@ -13,12 +13,17 @@ public class AuthenticationController {
     private final AuthenticationService service;
 
     @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request){
-        return ResponseEntity.ok(service.register(request));
+    public ResponseEntity<String> register(@RequestBody RegisterRequest request) {
+        try {
+            service.register(request);
+            return ResponseEntity.ok("User registered successfully");
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body("Email already exists");
+        }
     }
 
     @PostMapping("/authenticate")
-    public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequset request){
+    public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequset request) {
         return ResponseEntity.ok(service.authenticate(request));
     }
 
